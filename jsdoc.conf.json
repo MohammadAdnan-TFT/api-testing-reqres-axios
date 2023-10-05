@@ -1,0 +1,15 @@
+{
+    "source": {
+        "include": [
+            "./tests"
+        ],
+        "exclude": [
+            "./node_modules"
+        ]
+    },
+    "opts": {
+        "recurse": true,
+        "destination": "./docs",
+        "encoding": "utf8"
+    }
+}
