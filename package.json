@@ -1,13 +1,18 @@
 {
   "name": "apitesting1",
   "version": "1.0.0",
-  "description": "",
+  "description": "API Testing Automation using jest and axios",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "jest",
+    "API Testing",
+    "axios",
+    "Test Automation"
+  ],
+  "author": "Mohammad Adnan",
   "license": "ISC",
   "devDependencies": {
     "axios": "^1.5.1",
