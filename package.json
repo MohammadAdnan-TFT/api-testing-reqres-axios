@@ -4,11 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-post": "jest tests/postTest.test.js",
-    "test-get": "jest tests/getTest.test.js",
-    "test-put": "jest tests/putTest.test.js",
-    "test-delete": "jest tests/deleteTest.test.js",
-    "test-patch": "jest tests/patchTest.test.js",
     "test": "jest"
   },
   "keywords": [],
