@@ -11,13 +11,23 @@ describe("API Testing", () => {
             job: 'Engineer',
         };
 
-        await api.postData(user);
+        const response = await api.postData(user);
+
+        expect(response.data.name).toBe('John Doe');
+        expect(response.data.job).toBe('Engineer');
+        expect(response.status).toBe(201);
 
     });
 
     test('GET request should retrieve user data', async () => {
 
-        await api.getData(userId);
+        const response = await api.getData(userId);
+
+        expect(response.data.data.id).toBe(userId);
+        expect(response.data.data).toHaveProperty('email');
+        expect(response.data.data).toHaveProperty('first_name');
+        expect(response.data.data).toHaveProperty('last_name');
+        expect(response.status).toBe(200);
 
     });
 
@@ -28,7 +38,11 @@ describe("API Testing", () => {
             job: 'Designer',
         };
 
-        await api.putData(userId, updatedUser);
+        const response = await api.putData(userId, updatedUser);
+
+        expect(response.data.name).toBe(updatedUser.name);
+        expect(response.data.job).toBe(updatedUser.job);
+        expect(response.status).toBe(200);
     });
 
     test('PATCH request should update user data partially', async () => {
@@ -36,14 +50,19 @@ describe("API Testing", () => {
         const updatedUser = {
             job: 'Manager',
         };
-        await api.patchData(userId, updatedUser);
+        const response = await api.patchData(userId, updatedUser);
+
+        expect(response.data.job).toBe(updatedUser.job);
+        expect(response.status).toBe(200);
 
     });
 
 
     test('DELETE request should delete a user', async () => {
 
-        await api.deleteData(userId);
+        const response = await api.deleteData(userId);
+
+        expect(response.status).toBe(204);
 
     });
 

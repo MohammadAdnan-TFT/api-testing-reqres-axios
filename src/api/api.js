@@ -8,9 +8,7 @@ const baseUrl = 'https://reqres.in/api';
  */
 async function postData(payload) {
     const response = await axios.post(`${baseUrl}/users`, payload);
-
-    expect(response.data.name).toBe('John Doe');
-    expect(response.data.job).toBe('Engineer');
+    return response;
 }
 
 /**
@@ -20,11 +18,7 @@ async function postData(payload) {
  */
 async function getData(userId) {
     const response = await axios.get(`${baseUrl}/users/${userId}`);
-
-    expect(response.data.data.id).toBe(userId);
-    expect(response.data.data).toHaveProperty('email');
-    expect(response.data.data).toHaveProperty('first_name');
-    expect(response.data.data).toHaveProperty('last_name');
+    return response;
 }
 
 
@@ -37,10 +31,7 @@ async function getData(userId) {
  */
 async function putData(userId, payload) {
     const response = await axios.put(`${baseUrl}/users/${userId}`, payload);
-
-    expect(response.data.name).toBe(payload.name);
-    expect(response.data.job).toBe(payload.job);
-
+    return response;
 }
 
 /**
@@ -50,9 +41,7 @@ async function putData(userId, payload) {
  */
 async function deleteData(userId) {
     const response = await axios.delete(`${baseUrl}/users/${userId}`);
-
-    const isDeleted = (response.status === 204);
-    expect(isDeleted).toBe(true);
+    return response;
 }
 
 /**
@@ -63,8 +52,7 @@ async function deleteData(userId) {
  */
 async function patchData(userId, payload) {
     const response = await axios.patch(`${baseUrl}/users/${userId}`, payload);
-
-    expect(response.data.job).toBe(payload.job);
+    return response;
 }
 
 module.exports = {
